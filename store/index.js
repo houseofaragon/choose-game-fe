@@ -26,5 +26,14 @@ export const actions = {
     } catch (err) {
       console.log(err)
     }
+  },
+  async getPageContent({ state, commit }) {
+    try {
+      const response = await fetch(`${process.env.API_URL}/api/pages`)
+      const pages = await response.json()
+      commit('updatePages', pages.data)
+    } catch (err) {
+      console.log(err)
+    }
   }
 }

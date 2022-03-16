@@ -1,10 +1,9 @@
 <template>
-  <div class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white overflow-hidden">
-    <div class="">
-      <Header :isDarkMode="isDarkMode" :toggleDarkMode="toggleDarkMode" />
-      <div class="h-screen w-screen m-auto">
-        <Nuxt />
-      </div>
+  <div class="h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-sm">
+    <Header
+      :isDarkMode="isDarkMode" :toggleDarkMode="toggleDarkMode" />
+    <div class="m-auto">
+      <Nuxt />
     </div>
   </div>
 </template>

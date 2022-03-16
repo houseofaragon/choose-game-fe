@@ -59,7 +59,6 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/apollo',
-    //'three'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -82,6 +81,7 @@ export default {
       }
     }
   },
+
   env: {
     strapiBaseUri: process.env.API_URL || "http://localhost:1337"
   },
