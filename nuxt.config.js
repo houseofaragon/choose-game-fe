@@ -3,7 +3,7 @@ import axios from "axios";
 
 let dynamicRoutes = async () => {
   const pages = await axios.get(`http://localhost:1337/api/pages`)
-  console.log('pages', pages);
+  
   return pages.data.map(page => {
     return {
       route: `/story/${page.attributes.slug}`,
@@ -13,6 +13,7 @@ let dynamicRoutes = async () => {
 }
 
 export default {
+  target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Choose your own adventure',
@@ -27,7 +28,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Staatliches' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=VT323&display=swap' }
     ]
   },
   generate: {
@@ -59,6 +60,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/apollo',
+    //'troisjs'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -81,7 +83,6 @@ export default {
       }
     }
   },
-
   env: {
     strapiBaseUri: process.env.API_URL || "http://localhost:1337"
   },

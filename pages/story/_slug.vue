@@ -6,10 +6,10 @@
         Back to home
       </StoryCardButton>
     </div>
-    <div v-else-if="page && content">
-      <div v-if="content" class="min-h-[200px]" v-html="content"></div>
+    <div v-else-if="page && page.content">
+      <div class="min-h-[200px]" v-html="page.content"></div>
       <div class="mt-10" v-if="page.options && page.options.length">
-        <div class="mb-5 mr-2 flex flex-column justify-center text-left" v-for="option in page.options" :key="option">
+        <div class="mb-5 mr-2 flex flex-column justify-center text-left" v-for="option in page.options" :key="option.text">
           <StoryCardButton :link="`/story/page-${option.page}`">
             {{option.text}}
           </StoryCardButton>
@@ -26,6 +26,7 @@
     </div>
     <div class="mt-10 h-20 min-w-[200px]" v-else>
       <div class="min-h-[200px] text-center">
+        <p>This story is being written.</p>
         <p>To be continued...</p>
       </div>
       <div class="flex flex-row justify-between">
@@ -55,30 +56,19 @@ export default {
   data() {
     return {
       slug: this.$route.params.slug,
-      content: 'Loading...'
     }
   },
   computed: {
     ...mapState(['pages']),
     page() {
       const pageData = this.pages.find(page => {
-        return page.attributes.slug == this.slug
+        return page.slug == this.slug
       })
 
       if (!pageData) return []
 
-      const data = pageData.attributes
-      return data
+      return pageData
     }
-  },
-  async created() {
-      if(!this.page || !this.page.content) {
-        this.content = ''
-        return
-      } 
-
-      const contentString = await markdownToHtml(this.page.content)
-      this.content = contentString
   },
   components: {
     StoryCard,

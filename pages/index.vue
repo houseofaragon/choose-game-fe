@@ -16,15 +16,12 @@ import StoryCard from '@/components/StoryCard'
 import StoryCardButton from '../components/StoryCardButton.vue'
 
 export default {
-  setup () {
-    return {}
-  },
   components: {
-    StoryCard
+    StoryCard,
+    StoryCardButton
   }
 }
 </script>
 
-    StoryCardButton
 <style lang="scss" scoped>
 </style>

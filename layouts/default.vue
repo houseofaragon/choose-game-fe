@@ -1,8 +1,9 @@
 <template>
-  <div class="h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-sm">
+  <div class="h-screen bg-slate-50 dark:bg-[#141414] text-slate-900 dark:text-white text-md">
     <Header
       :isDarkMode="isDarkMode" :toggleDarkMode="toggleDarkMode" />
-    <div class="m-auto">
+    <div class="m-auto px-10">
+      <Grid />
       <Nuxt />
     </div>
   </div>
@@ -21,21 +22,26 @@ export default {
     }
   },
   mounted() {
-    const theme = localStorage.darkMode
-      ? localStorage.darkMode
-      : 'false';
+    const supportDarkMode =
+      window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+    const theme = supportDarkMode
+      ? 'true'
+      : localStorage.darkMode
+        ? localStorage.darkMode
+        : 'false'
+
     this.isDarkMode = theme
   },
   methods: {
     toggleDarkMode() {
-      this.isDarkMode = this.isDarkMode === 'dark' ? 'false' : 'dark'
+      this.isDarkMode = this.isDarkMode === 'true' ? 'false' : 'true'
       localStorage.setItem('darkMode', this.isDarkMode)
     }
   },
   watch: {
     isDarkMode(isDarkMode) {
-      console.log(isDarkMode)
-      if(isDarkMode === 'dark') {
+      if(isDarkMode === 'true') {
           document.documentElement.classList.add('dark')
       } else {
         document.documentElement.classList.remove('dark')

@@ -1,3 +1,4 @@
+import { markdownToHtml } from "../lib/markdownToHtml"
 
 export const state = () => ({
   pages: []
@@ -10,8 +11,18 @@ export const getters = {
 }
 
 export const mutations = {
-  updatePages: (state, payload) => {
-    state.pages = payload
+  async updatePages(state, payload) {
+    const formattedPayload = await Promise.all(payload.map(async page => {
+      const markdown = page.attributes.content
+      const html = await markdownToHtml(markdown)
+
+      return {
+        ...page.attributes,
+        content: html
+      }
+    }))
+
+    state.pages = formattedPayload
   }
 }
 
@@ -22,15 +33,7 @@ export const actions = {
     try {
       const response = await fetch(`${process.env.API_URL}/api/pages`)
       const pages = await response.json()
-      commit('updatePages', pages.data)
-    } catch (err) {
-      console.log(err)
-    }
-  },
-  async getPageContent({ state, commit }) {
-    try {
-      const response = await fetch(`${process.env.API_URL}/api/pages`)
-      const pages = await response.json()
+
       commit('updatePages', pages.data)
     } catch (err) {
       console.log(err)
