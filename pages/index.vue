@@ -18,7 +18,6 @@
     </canvas>
   </div>
 </template>
-
 <script>
 import StoryCard from '@/components/StoryCard'
 import StoryCardButton from '../components/StoryCardButton.vue'
