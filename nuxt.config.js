@@ -4,7 +4,8 @@ import axios from "axios";
 let dynamicRoutes = async () => {
   const pages = await axios.get(`http://localhost:1337/api/pages`)
   
-  return pages.data.map(page => {
+  console.log('pages', pages.data)
+  return pages.data.data.map(page => {
     return {
       route: `/story/${page.attributes.slug}`,
       payload: {...page.attributes}
