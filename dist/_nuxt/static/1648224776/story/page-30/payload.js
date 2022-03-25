@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/story/page-30", {data:[{}],fetch:{},mutations:[]});
