@@ -1,25 +1,17 @@
 <template>
-  <nav>
-    <div class="flex flex-wrap justify-between p-10">
-      <div class="text-x-lg">
+  <nav class="w-full t-0 l-0">
+    <div class=" flex flex-wrap justify-between p-10">
+      <div class="text-lg">
         <NuxtLink to="/">Cave of Time</NuxtLink>
       </div>
-      <div class="flex flex-row justify-end">
+      <div class="flex flex-row justify-end items-top">
         <span class="mr-5"><NuxtLink to="/about">About</NuxtLink></span>
         <span class="mr-5"><NuxtLink to="/">Code</NuxtLink></span>
-
-        <span class="text-sm font-medium">☀</span>
-        <div class="form-check form-switch" @change="$props.toggleDarkMode()">
-          <label for="dark-mode-toggle" class="flex flex-row cursor-pointer relative">
-            <input
-              type="checkbox"
-              id="dark-mode-toggle"
-              class="sr-only"
-              :checked="isDarkMode === 'true'"
-            >
-            <div class="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
-            <span class="text-sm font-medium">☽</span>
-          </label>
+        <div>
+          <button @click="$props.toggleDarkMode()">
+            <span class="text-xl" v-if="isDarkMode === 'true'">☼</span>
+            <span v-else>☽</span>
+          </button>
         </div>
       </div>
     </div>

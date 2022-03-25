@@ -9,7 +9,7 @@
     <div v-else-if="page && page.content">
       <div class="min-h-[200px]" v-html="page.content"></div>
       <div class="mt-10" v-if="page.options && page.options.length">
-        <div class="mb-5 mr-2 flex flex-column justify-center text-left" v-for="option in page.options" :key="option.text">
+        <div class="mb-5 mr-2 flex flex-column justify-end text-right" v-for="option in page.options" :key="option.text">
           <StoryCardButton :link="`/story/page-${option.page}`">
             {{option.text}}
           </StoryCardButton>

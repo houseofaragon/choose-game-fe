@@ -3,7 +3,6 @@
     <Header
       :isDarkMode="isDarkMode" :toggleDarkMode="toggleDarkMode" />
     <div class="m-auto px-10">
-      <Grid />
       <Nuxt />
     </div>
   </div>
@@ -18,7 +17,7 @@ export default {
   },
   data() {
     return {
-      isDarkMode: 'false',
+      isDarkMode: 'true',
     }
   },
   mounted() {
