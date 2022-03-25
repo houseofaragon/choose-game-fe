@@ -40,6 +40,7 @@
             gl_FragColor = vec4(c, 1.0);
         }
         `;
+        
         class Shader {
           id;
           fragment;
