@@ -6,7 +6,9 @@
       </div>
       <div class="flex flex-row justify-end items-top">
         <span class="mr-5"><NuxtLink to="/about">About</NuxtLink></span>
-        <span class="mr-5"><a href="https://github.com/houseofaragon/choose-game-fe">Code</a></span>
+        <span class="mr-5">
+          <a href="https://github.com/houseofaragon/choose-game-fe" target="blank">Code</a>
+        </span>
         <div>
           <button @click="$props.toggleDarkMode()">
             <span class="text-xl" v-if="isDarkMode === 'true'">☼</span>
