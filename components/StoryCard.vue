@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center m-auto w-30 md:w-[50%] lg:w-[30%] vertical-align:middle h-full-screen md:mt-20 pb-20">
+  <div class="card h-screen h-full flex flex-col items-center m-auto w-30 md:w-[50%] lg:w-[30%] vertical-align:middle md:mt-20 pb-20">
     <slot></slot> 
   </div>
 </template>
@@ -13,4 +13,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  height: 100vh;
+}
 </style>
