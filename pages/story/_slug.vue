@@ -49,7 +49,6 @@
 import { mapState } from "vuex"
 import StoryCard from '../../components/StoryCard.vue'
 import StoryCardButton from '../../components/StoryCardButton.vue'
-import {markdownToHtml} from '../../lib/markdownToHtml'
 
 export default {
   props: ['error'],

@@ -1,9 +1,9 @@
 <template>
   <div class="about absolute h-full-screen w-full-screen">
-    <div class="landing absolute t-[50%] l-[40%] color-white dark:color-white text-center">
+    <div class="landing absolute t-[50%] l-[40%] text-white dark:text-slate-200 text-center px-10">
       <StoryCard>
         <div class="">
-          <h1>CAVE OF TIME </h1>
+          <h1 class="text-[50px] md:text-[70px]">CAVE OF TIME </h1>
           <p class="text-left">You are hiking in Snake Canyon when you find yourself lost in the strange, dimly lit Cave of Time. Gradually you can make out two passageways. One curves downward to the right; the other leads upward to the left.</p>
           <p class="text-left">What happens next in the story? It all depends on the choices you make.</p>
         </div>
@@ -95,9 +95,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  font-size: 70px;
-}
 .about {
   left: 0
 }
