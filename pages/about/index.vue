@@ -1,6 +1,6 @@
 <template>
   <div class="about absolute h-full-screen w-full-screen">
-    <div class="absolute p-10 md:p-40 t-[40%] l-[40%] color-white dark:color-white">
+    <div class="absolute p-10 t-[40%] l-[40%] color-white dark:color-white w-96">
       <p>
         I woke up from a dream one day where I found a cave that was a time portal. Google searches later, to determine what this dream could mean, led me to this book "Cave of Time."
       </p>
